@@ -265,10 +265,10 @@
                   "id": "9a7c3c03-a142-4080-a5c1-aa510c6f24aa",
                   "title": "Brute-Force-Angriff auf Benutzerkonten",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Low",
                   "type": "Spoofing",
-                  "description": "Ein Angreifer versucht durch automatisiertes Ausprobieren (Brute Force) von Passwörtern, die Identität eines legitimen Benutzers anzunehmen\n\nMitre CAPEC: CAPEC-112 (Brute Force) Mitre ATT&CK: T1110 (Brute Force)",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Ein Angreifer versucht durch automatisiertes Ausprobieren (Brute Force) von Passwörtern, die Identität eines legitimen Benutzers anzunehmen\n\nMitre CAPEC: CAPEC-112 (Brute Force) Mitre ATT&CK: T1110 (Brute Force)\n\nDamage: 8 (möglicher Datenmissbrauch)\nReproducibility: 10 (mit Skripten automatisierbar)\nExploitability: 9 (viele Tools verfügbar)\nAffected Users: 5 (Meist einzelne Nutzer pro Angriff)",
+                  "mitigation": "Die Anwendung sperrt Benutzerkonten oder IP-Adressen nach 5 fehlgeschlagenen Versuchen temporär\n\nOWASP ASVS V6.4.1 \nVerify that system generated initial passwords or activation codes are\nsecurely randomly generated, follow the existing password policy, and\nexpire after a short period of time or after they are initially used. These\ninitial secrets must not be permitted to become the long term password\n\nDamage: 8 (Schaden bleibt bei Erfolg hoch)\nReproducibility: 2 (Durch Sperre kaum wiederholbar)\nExploitability: 2 (Brute-Force wird ineffektiv)\nAffected Users: 5\n4.25\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 103,
@@ -278,13 +278,15 @@
               "hasOpenThreats": true,
               "isWebApplication": null,
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
-              }
+              },
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null
             }
           },
           {
@@ -2082,13 +2084,6 @@
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
